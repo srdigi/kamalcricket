@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kamal Cricket Analyst™</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(255,193,7,.16),transparent 30%),
+        radial-gradient(circle at 85% 80%,rgba(255,82,82,.14),transparent 30%),
+        linear-gradient(145deg,#080b12,#151923 55%,#090c13);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    padding:15px;
+}
+
+.card{
+    width:100%;
+    max-width:430px;
+    padding:27px 20px 22px;
+    border-radius:25px;
+    background:rgba(20,24,34,.88);
+    border:1px solid rgba(255,255,255,.10);
+    box-shadow:0 20px 60px rgba(0,0,0,.55);
+    text-align:center;
+    animation:cardIn .8s ease;
+}
+
+/* Stylish Animated Name */
+.brand{
+    position:relative;
+    display:inline-block;
+    font-size:28px;
+    line-height:1.15;
+    font-weight:900;
+    letter-spacing:.4px;
+    background:linear-gradient(
+        90deg,
+        #ffd54a,
+        #fff,
+        #ff9f43,
+        #ffd54a
+    );
+    background-size:250% auto;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:textMove 3s linear infinite;
+}
+
+.tm{
+    font-size:11px;
+    vertical-align:top;
+    color:#ffd54a;
+}
+
+.line{
+    width:70px;
+    height:3px;
+    margin:12px auto 15px;
+    border-radius:10px;
+    background:linear-gradient(90deg,#ffd54a,#ff7043);
+    animation:linePulse 1.8s ease-in-out infinite;
+}
+
+.intro{
+    font-size:14px;
+    line-height:1.5;
+    color:#cbd2df;
+    margin-bottom:18px;
+}
+
+/* Small Content Boxes */
+.boxes{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:9px;
+    margin-bottom:20px;
+}
+
+.box{
+    padding:12px 8px;
+    border-radius:13px;
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(255,213,74,.14);
+    animation:boxFloat 3s ease-in-out infinite;
+}
+
+.box:nth-child(2){
+    animation-delay:.25s;
+}
+
+.box:nth-child(3){
+    animation-delay:.5s;
+}
+
+.box:nth-child(4){
+    animation-delay:.75s;
+}
+
+.box strong{
+    display:block;
+    font-size:13px;
+    color:#fff;
+    margin-bottom:4px;
+}
+
+.box span{
+    font-size:10px;
+    color:#aeb8c8;
+}
+
+/* CTA */
+.join{
+    display:block;
+    position:relative;
+    overflow:hidden;
+    width:100%;
+    padding:16px 18px;
+    border-radius:14px;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:800;
+    color:#171008;
+    background:linear-gradient(
+        100deg,
+        #ffb300,
+        #ffd54f,
+        #ff8f00
+    );
+    background-size:200% auto;
+    box-shadow:
+        0 0 18px rgba(255,179,0,.45),
+        0 0 38px rgba(255,143,0,.20);
+    animation:buttonGlow 2s ease-in-out infinite,
+               buttonGradient 3s linear infinite;
+    transition:.25s ease;
+}
+
+.join:hover{
+    transform:translateY(-3px) scale(1.015);
+}
+
+.join::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:55%;
+    height:100%;
+    background:rgba(255,255,255,.55);
+    transform:skewX(-25deg);
+    animation:shine 2.5s infinite;
+}
+
+.join span{
+    position:relative;
+    z-index:2;
+}
+
+.note{
+    margin-top:13px;
+    font-size:10px;
+    color:#7f8a9b;
+}
+
+/* Animations */
+@keyframes cardIn{
+    from{
+        opacity:0;
+        transform:translateY(25px) scale(.96);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+@keyframes textMove{
+    0%{background-position:0% center;}
+    100%{background-position:250% center;}
+}
+
+@keyframes linePulse{
+    0%,100%{width:55px;opacity:.65;}
+    50%{width:100px;opacity:1;}
+}
+
+@keyframes boxFloat{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-3px);}
+}
+
+@keyframes buttonGlow{
+    0%,100%{
+        box-shadow:
+        0 0 15px rgba(255,179,0,.4),
+        0 0 30px rgba(255,143,0,.18);
+    }
+    50%{
+        box-shadow:
+        0 0 25px rgba(255,193,7,.75),
+        0 0 48px rgba(255,143,0,.30);
+    }
+}
+
+@keyframes buttonGradient{
+    0%{background-position:0% center;}
+    100%{background-position:200% center;}
+}
+
+@keyframes shine{
+    0%{left:-120%;}
+    55%,100%{left:150%;}
+}
+
+@media(max-width:360px){
+    .card{
+        padding:23px 16px 19px;
+    }
+
+    .brand{
+        font-size:24px;
+    }
+
+    .intro{
+        font-size:13px;
+    }
+
+    .box{
+        padding:10px 6px;
+    }
+
+    .join{
+        font-size:16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="brand">
+        Kamal Cricket Analyst<span class="tm">™</span>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="intro">
+        Cricket updates, match insights aur useful information
+        ek hi jagah par.
+    </div>
+
+    <div class="boxes">
+
+        <div class="box">
+            <strong>🏏 Match Updates</strong>
+            <span>Latest cricket info</span>
+        </div>
+
+        <div class="box">
+            <strong>📊 Match Insights</strong>
+            <span>Useful analysis</span>
+        </div>
+
+        <div class="box">
+            <strong>⚡ Quick Updates</strong>
+            <span>Timely information</span>
+        </div>
+
+        <div class="box">
+            <strong>📲 Telegram</strong>
+            <span>Direct channel access</span>
+        </div>
+
+    </div>
+
+    <a
+        class="join"
+        href="https://t.me/+aNNAoJ81Lfw4Mzdl"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <span>🚀 Join Telegram</span>
+    </a>
+
+    <div class="note">
+        Cricket information & entertainment purposes.
+    </div>
+
+</div>
+
+</body>
+</html>
